@@ -8,6 +8,6 @@
         "package_type": "tkotosz-fooapp-extension",
         "extension_class_config_field": "tkotosz-fooapp-extension-class"
     },
-    "repositories": [],
+    "global_mode_enabled": true,
     "build_target": "bin/fooapp"
 }

@@ -8,10 +8,10 @@ $config = json_decode(file_get_contents('cli-app-wrapper-config.json'), true);
 
 
 $appConfig = $config;
-unset($appConfig['build_target']);
+unset($appConfig['build_target_dir']);
 file_put_contents('build-tmp/config.php', sprintf('<?php return %s;', var_export($appConfig, true)));
 
-
+$targetDir = $config['build_target_dir'] ?? 'bin';
 $boxConfig = [
     'compactors' => [
         'KevinGH\Box\Compactor\Php',
@@ -19,7 +19,7 @@ $boxConfig = [
     ],
     'php-scoper' => 'scoper.inc.php',
     'dump-autoload' => true,
-    'output' => '../' . $config['build_target'],
+    'output' => '../' . $targetDir . '/' . $config['app_executable_name'],
     'compression' => 'GZ'
 ];
 

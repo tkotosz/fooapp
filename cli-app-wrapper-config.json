@@ -1,7 +1,7 @@
 {
     "app_name": "Foo App",
     "app_package": "tkotosz/fooapp-src",
-    "app_version": "0.1.0",
+    "app_version": "0.2.0",
     "app_dir": ".fooapp",
     "app_factory": "Tkotosz\\FooApp\\ApplicationFactory",
     "app_extensions": {

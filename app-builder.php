@@ -78,7 +78,7 @@ $wrappedApp = <<<'WRAPPEDAPP'
 <?php
 
 use Tkotosz\CliAppWrapper\CliAppWrapper;
-use Tkotosz\CliAppWrapperApi\Api\V1\Model\ApplicationConfig;
+use Tkotosz\CliAppWrapper\ApplicationConfig;
 
 require __DIR__ . '/../vendor/autoload.php';
 

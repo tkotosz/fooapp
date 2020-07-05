@@ -14,7 +14,8 @@
     "require": {
         "ext-json": "*",
         "tkotosz/cli-app-wrapper-api": "*",
-        "symfony/console": "^5.0"
+        "symfony/console": "^5.0",
+        "ocramius/package-versions": "^1.9"
     },
     "autoload": {
         "psr-4": {

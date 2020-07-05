@@ -2,6 +2,7 @@
 
 namespace Tkotosz\FooApp;
 
+use PackageVersions\Versions;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Tkotosz\FooApp\Console\Command\AppUpdateCommand;
 use Tkotosz\FooApp\Console\Command\ExtensionInstallCommand;
@@ -34,7 +35,7 @@ class Application implements ApplicationInterface
 
     public function run(): void
     {
-        $consoleApp = new ConsoleApplication('Foo App', '0.1.1');
+        $consoleApp = new ConsoleApplication('Foo App', Versions::getVersion('tkotosz/fooapp'));
 
         $consoleApp->add(new GlobalCommand($this->applicationManager));
 

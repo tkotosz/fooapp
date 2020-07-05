@@ -1,4 +1,4 @@
-#!/bin/env php
+#!/usr/bin/env php
 <?php
 
 $config = json_decode(file_get_contents(__DIR__ . '/cli-app-wrapper-config.json'), true);

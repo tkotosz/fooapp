@@ -15,7 +15,7 @@
         "ext-json": "*",
         "tkotosz/cli-app-wrapper-api": "*",
         "symfony/console": "^5.0",
-        "ocramius/package-versions": "~1.4.0"
+        "composer/package-versions-deprecated": "^1.8"
     },
     "autoload": {
         "psr-4": {

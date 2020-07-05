@@ -1,18 +1,24 @@
 {
     "name": "tkotosz/fooapp",
     "type": "project",
-    "description": "Tkotosz - FooApp",
+    "description": "Foo App",
+    "license": "MIT",
     "authors": [
         {
             "name": "Tibor Kotosz",
             "email": "kotosy@gmail.com"
         }
     ],
-    "license": ["MIT"],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": "^7.1"
+        "ext-json": "*",
+        "tkotosz/cli-app-wrapper-api": "*",
+        "symfony/console": "^5.0"
     },
-    "bin": [
-        "bin/fooapp"
-    ]
+    "autoload": {
+        "psr-4": {
+            "Tkotosz\\FooApp\\": "src"
+        }
+    }
 }

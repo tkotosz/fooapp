@@ -1,7 +1,7 @@
 {
     "app_name": "Foo App",
-    "app_package": "tkotosz/fooapp-src",
-    "app_version": "0.2.0",
+    "app_package": "tkotosz/fooapp",
+    "app_version": "0.1.0",
     "app_dir": ".fooapp",
     "app_factory": "Tkotosz\\FooApp\\ApplicationFactory",
     "app_extensions": {
@@ -13,6 +13,5 @@
     "local_working_directory_resolvers": ["git", "cwd"],
     "app_executable_name": "fooapp",
     "github_user": "tkotosz",
-    "github_repository": "fooapp",
-    "build_target_dir": "bin"
+    "github_repository": "fooapp"
 }

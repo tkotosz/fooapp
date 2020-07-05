@@ -1,17 +1,15 @@
 #!/bin/env php
 <?php
 
-$config = json_decode(file_get_contents('cli-app-wrapper-config.json'), true);
+$config = json_decode(file_get_contents(__DIR__ . '/cli-app-wrapper-config.json'), true);
 
 @mkdir('build-tmp');
 @mkdir('build-tmp/bin');
 
 
 $appConfig = $config;
-unset($appConfig['build_target_dir']);
 file_put_contents('build-tmp/config.php', sprintf('<?php return %s;', var_export($appConfig, true)));
 
-$targetDir = $config['build_target_dir'] ?? 'bin';
 $boxConfig = [
     'compactors' => [
         'KevinGH\Box\Compactor\Php',
@@ -19,7 +17,7 @@ $boxConfig = [
     ],
     'php-scoper' => 'scoper.inc.php',
     'dump-autoload' => true,
-    'output' => '../' . $targetDir . '/' . $config['app_executable_name'],
+    'output' => '../dist/' . $config['app_executable_name'],
     'compression' => 'GZ'
 ];
 
@@ -64,14 +62,6 @@ COMPOSERCONFIG;
 
 file_put_contents('build-tmp/composer.json', $composerConfig);
 
-$makeFile = <<<MAKEFILE
-build:
-\tcomposer install
-\tbox compile
-MAKEFILE;
-
-file_put_contents('build-tmp/Makefile', $makeFile);
-
 
 $wrappedApp = <<<'WRAPPEDAPP'
 #!/bin/env php
@@ -88,8 +78,3 @@ require __DIR__ . '/../vendor/autoload.php';
 WRAPPEDAPP;
 
 file_put_contents('build-tmp/bin/wrapped-app', $wrappedApp);
-
-
-system('cd build-tmp && make build && cd -');
-
-echo "DONE" . PHP_EOL;

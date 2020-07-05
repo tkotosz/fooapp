@@ -35,7 +35,7 @@ class Application implements ApplicationInterface
 
     public function run(): void
     {
-        $consoleApp = new ConsoleApplication('Foo App', Versions::getVersion('tkotosz/fooapp'));
+        $consoleApp = new ConsoleApplication('Foo App', $this->getVersion());
 
         $consoleApp->add(new GlobalCommand($this->applicationManager));
 
@@ -59,5 +59,16 @@ class Application implements ApplicationInterface
         }
 
         $consoleApp->run();
+    }
+
+    private function getVersion(): string
+    {
+        $version = Versions::getVersion('tkotosz/fooapp');
+
+        if (strpos($version, '@') !== false) {
+            $version = substr($version, 0, strpos($version, '@'));
+        }
+
+        return $version;
     }
 }

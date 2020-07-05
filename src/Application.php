@@ -34,7 +34,7 @@ class Application implements ApplicationInterface
 
     public function run(): void
     {
-        $consoleApp = new ConsoleApplication('Foo App', '0.1.0');
+        $consoleApp = new ConsoleApplication('Foo App', '0.1.1');
 
         $consoleApp->add(new GlobalCommand($this->applicationManager));
 

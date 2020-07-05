@@ -2,4 +2,3 @@
 /build/dist/
 /build/build-tmp/
 /.fooapp/
-composer.lock

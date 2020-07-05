@@ -8,6 +8,7 @@ $config = json_decode(file_get_contents(__DIR__ . '/cli-app-wrapper-config.json'
 
 
 $appConfig = $config;
+$appConfig['app_version'] = getenv('APP_VERSION') ?: '*';
 file_put_contents('build-tmp/config.php', sprintf('<?php return %s;', var_export($appConfig, true)));
 
 $boxConfig = [

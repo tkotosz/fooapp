@@ -56,6 +56,8 @@ jobs:
 
       - name: "build-phar.sh"
         run: "build/build-phar.sh"
+        env:
+          APP_VERSION: ${GITHUB_REF#refs/tags/}
 
       - name: "Upload PHAR"
         uses: fnkr/github-action-ghr@v1

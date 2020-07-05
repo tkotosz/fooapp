@@ -12,6 +12,11 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - name: "Set Environment Variables"
+        uses: "allenevans/set-env@v1.0.0"
+        with:
+          BOX_VERSION: "3.8.4"
+
       - name: "Checkout"
         uses: "actions/checkout@v2"
 
@@ -39,6 +44,15 @@ jobs:
 
       - name: "Install Project Dependencies"
         run: "composer install --prefer-dist --no-interaction --no-progress --no-suggest"
+
+      - name: "Install Box"
+        run: |
+          wget \
+            "https://github.com/humbug/box/releases/download/${BOX_VERSION}/box.phar" \
+            --quiet \
+            -O ./box
+          chmod +x ./box
+          sudo mv ./box /usr/local/bin
 
       - name: "build-phar.sh"
         run: "build/build-phar.sh"
